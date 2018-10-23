@@ -4,13 +4,13 @@
 #include "microAptiv.dtsi"
 
 / {
-	compatible = "digilent,nexys4ddr";
+	compatible = "img,xilfpga";
 
 	aliases {
 		serial0 = &axi_uart16550;
 	};
 	chosen {
-		bootargs = "console=ttyS0,115200";
+		bootargs = "console=ttyS0,115200  clk_ignore_unused earlyprintk=serial,ttyS0,115200 root=/dev/ram0";
 		stdout-path = "serial0:115200n8";
 	};
 
