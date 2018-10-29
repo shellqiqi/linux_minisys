@@ -56,9 +56,22 @@
 		compatible = "xlnx,xps-gpio-1.00.a";
 		gpio-controller;
 		reg = <0x10C00000 0x1000>;
-                xlnx,all-inputs = <0xffffff>;
+                xlnx,all-inputs = <0x0>;
                 xlnx,dout-default = <0x0>;
                 xlnx,gpio-width = <0x18>;
+                xlnx,interrupt-present = <0x0>;
+                xlnx,is-dual = <0x0>;
+                xlnx,tri-default = <0xffffffff>;
+	};
+
+	buzz_axi_gpio: gpio@10700000 {
+		#gpio-cells = <2>;
+		compatible = "xlnx,xps-gpio-1.00.a";
+		gpio-controller;
+		reg = <0x10700000 0x1000>;
+                xlnx,all-inputs = <0x0>;
+                xlnx,dout-default = <0x0>;
+                xlnx,gpio-width = <0x20>;
                 xlnx,interrupt-present = <0x0>;
                 xlnx,is-dual = <0x0>;
                 xlnx,tri-default = <0xffffffff>;
