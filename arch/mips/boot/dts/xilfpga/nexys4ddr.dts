@@ -10,7 +10,7 @@
 		serial0 = &axi_uart16550;
 	};
 	chosen {
-		bootargs = "console=ttyS0,115200  clk_ignore_unused earlyprintk=serial,ttyS0,115200 root=/dev/ram0";
+		bootargs = "console=ttyS0,115200  clk_ignore_unused earlyprintk=serial,ttyS0,115200";
 		stdout-path = "serial0:115200n8";
 	};
 
@@ -38,18 +38,31 @@
 		interrupts = <6>;
 	};
 
-	axi_gpio: gpio@10600000 {
-		#gpio-cells = <1>;
+	led_axi_gpio: gpio@10600000 {
+		#gpio-cells = <2>;
 		compatible = "xlnx,xps-gpio-1.00.a";
 		gpio-controller;
 		reg = <0x10600000 0x10000>;
 		xlnx,all-inputs = <0x0>;
 		xlnx,dout-default = <0x0>;
-		xlnx,gpio-width = <0x16>;
+		xlnx,gpio-width = <0x18>;
 		xlnx,interrupt-present = <0x0>;
 		xlnx,is-dual = <0x0>;
 		xlnx,tri-default = <0xffffffff>;
-	} ;
+	};
+
+	sw_axi_gpio: gpio@10C00000 {
+		#gpio-cells = <2>;
+		compatible = "xlnx,xps-gpio-1.00.a";
+		gpio-controller;
+		reg = <0x10C00000 0x1000>;
+                xlnx,all-inputs = <0xffffff>;
+                xlnx,dout-default = <0x0>;
+                xlnx,gpio-width = <0x18>;
+                xlnx,interrupt-present = <0x0>;
+                xlnx,is-dual = <0x0>;
+                xlnx,tri-default = <0xffffffff>;
+	};
 
 	axi_ethernetlite: ethernet@10e00000 {
 		compatible = "xlnx,xps-ethernetlite-3.00.a";
@@ -59,6 +72,7 @@
 		phy-handle = <&phy0>;
 		reg = <0x10e00000 0x10000>;
 		xlnx,duplex = <0x1>;
+		local-mac-address = [08 86 4C 0D F7 09];
 		xlnx,include-global-buffers = <0x1>;
 		xlnx,include-internal-loopback = <0x0>;
 		xlnx,include-mdio = <0x1>;
@@ -72,6 +86,8 @@
 			#size-cells = <0>;
 			phy0: phy@1 {
 				device_type = "ethernet-phy";
+				interrupt-parent = <&axi_intc>;
+				interrupts = <2>;
 				reg = <1>;
 			};
 		};
