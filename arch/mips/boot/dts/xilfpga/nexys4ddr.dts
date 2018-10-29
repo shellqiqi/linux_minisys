@@ -77,6 +77,32 @@
                 xlnx,tri-default = <0xffffffff>;
 	};
 
+	seg_en_axi_gpio: gpio@10800000 {
+		#gpio-cells = <2>;
+		compatible = "xlnx,xps-gpio-1.00.a";
+		gpio-controller;
+		reg = <0x10800000 0x1000>;
+                xlnx,all-inputs = <0x0>;
+                xlnx,dout-default = <0x0>;
+                xlnx,gpio-width = <0x8>;
+                xlnx,interrupt-present = <0x0>;
+                xlnx,is-dual = <0x0>;
+                xlnx,tri-default = <0xffffffff>;
+	};
+
+	seg_axi_gpio: gpio@10810000 {
+		#gpio-cells = <2>;
+		compatible = "xlnx,xps-gpio-1.00.a";
+		gpio-controller;
+		reg = <0x10810000 0x1000>;
+                xlnx,all-inputs = <0x0>;
+                xlnx,dout-default = <0x0>;
+                xlnx,gpio-width = <0x20>;
+                xlnx,interrupt-present = <0x0>;
+                xlnx,is-dual = <0x0>;
+                xlnx,tri-default = <0xffffffff>;
+	};
+
 	axi_ethernetlite: ethernet@10e00000 {
 		compatible = "xlnx,xps-ethernetlite-3.00.a";
 		device_type = "network";
