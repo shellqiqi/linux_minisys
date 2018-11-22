@@ -1,6 +1,5 @@
 # All platforms listed in alphabetic order
 
-platforms += generic
 platforms += xilfpga
 
 # include the platform specific files
