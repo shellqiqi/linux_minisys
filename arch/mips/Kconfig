@@ -1032,30 +1032,7 @@ config MIPS_PARAVIRT
 
 endchoice
 
-source "arch/mips/alchemy/Kconfig"
-source "arch/mips/ath25/Kconfig"
-source "arch/mips/ath79/Kconfig"
-source "arch/mips/bcm47xx/Kconfig"
-source "arch/mips/bcm63xx/Kconfig"
-source "arch/mips/bmips/Kconfig"
 source "arch/mips/generic/Kconfig"
-source "arch/mips/jazz/Kconfig"
-source "arch/mips/jz4740/Kconfig"
-source "arch/mips/lantiq/Kconfig"
-source "arch/mips/lasat/Kconfig"
-source "arch/mips/pic32/Kconfig"
-source "arch/mips/pistachio/Kconfig"
-source "arch/mips/pmcs-msp71xx/Kconfig"
-source "arch/mips/ralink/Kconfig"
-source "arch/mips/sgi-ip27/Kconfig"
-source "arch/mips/sibyte/Kconfig"
-source "arch/mips/txx9/Kconfig"
-source "arch/mips/vr41xx/Kconfig"
-source "arch/mips/cavium-octeon/Kconfig"
-source "arch/mips/loongson32/Kconfig"
-source "arch/mips/loongson64/Kconfig"
-source "arch/mips/netlogic/Kconfig"
-source "arch/mips/paravirt/Kconfig"
 source "arch/mips/xilfpga/Kconfig"
 
 endmenu
